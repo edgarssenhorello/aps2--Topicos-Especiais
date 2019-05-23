@@ -12,8 +12,8 @@ class PoderesController < ApplicationController
   end
 
   def show
-    @personagem = Personagem.find(params[:id])
     @poder = Poder.find(params[:id])
+    @personagem = Personagem.find(params[:id])
   end
 
 

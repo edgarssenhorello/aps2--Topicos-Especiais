@@ -4,6 +4,7 @@
 
 <% @personagem.poderes.each do |poder| %>
 
+
   <ul style="list-style-type:none;">
     <li><b>ID do Poder:</b> <%= poder.id %></li>
   </ul>
@@ -16,4 +17,4 @@
 <% end %>
 
 <%= link_to 'Voltar', poderes_path, class: "btn btn-secondary" %>
-<%= link_to 'Editar Poder', edit_poder_path(@personagem), class: "btn btn-warning" %>
+<%= link_to 'Editar Poder', poder_path(@personagem), class: "btn btn-warning" %>

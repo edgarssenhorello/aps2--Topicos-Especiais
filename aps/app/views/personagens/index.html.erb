@@ -1,9 +1,11 @@
+
 <h1> Personagens</h1>
 <%= form_tag("/personagens", method: "get") do %>
   Agilidade:
   <%= number_field_tag(:agilidade, params[:agilidade]) %>
   <%= submit_tag("Filtrar", class: "btn-primary")%>
 <% end %>
+
 <p>
 <table class="table" style="text-align: center">
   <thead class="thead-light">
