@@ -28,7 +28,7 @@ class PoderesController < ApplicationController
 
   def poder_params
     params.
-        require(:poder ).
+        require(:poder).
         permit(:nome, :tipo)
   end
 
@@ -40,7 +40,7 @@ class PoderesController < ApplicationController
     @poder = Poder.find(params[:id])
     if @poder.update(poder_params)
       redirect_to @poder,
-                  notice:'Poder atualizado.'
+                  notice: 'Poder atualizado.'
     else
       render action: :edit
     end
