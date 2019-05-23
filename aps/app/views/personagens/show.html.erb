@@ -1,0 +1,40 @@
+<h1>Personagem <%= @personagem.nome %></h1>
+
+<ul style="list-style-type:none;">
+  <li>
+    <b>ID:</b> <%= @personagem.id %>
+  </li>
+</ul>
+
+<ul style="list-style-type:none;">
+  <li>
+    <b>Força:</b> <%= @personagem.forca %>
+  </li>
+</ul>
+
+
+<ul style="list-style-type:none;">
+  <li><b>Resistencia:</b> <%= @personagem.resistencia %> </li>
+</ul>
+
+<ul style="list-style-type:none;">
+  <li><b>Agilidade:</b> <%= @personagem.agilidade %> </li>
+</ul>
+<ul style="list-style-type:none;">
+  <li><b>Destreza: </b><%= @personagem.destreza %> </li>
+</ul>
+
+<h1>Poderes de <%= @personagem.nome %></h1>
+
+<% @personagem.poderes.each do |poder| %>
+  <ul style="list-style-type:none;">
+    <li><b><%= poder.tipo %>:</b> <%= poder.nome %></li>
+  </ul>
+
+<% end %>
+<p>
+  <%= link_to 'Voltar', personagens_path, class: "btn btn-secondary" %>
+  <%= link_to 'Editar Personagem', edit_personagem_path(@personagem), class: "btn btn-warning" %>
+</p>
+
+<p class="text-success"><p id="notice"><%= notice %> </p>

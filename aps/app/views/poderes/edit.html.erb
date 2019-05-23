@@ -1,0 +1,14 @@
+<h1>Editar Poder</h1>
+<%= form_with model: @poder do |f| %>
+  <p>
+    <%= f.label :nome %> <br />
+    <%= f.text_field :nome %>
+  </p>
+  <p>
+    <%= f.label :tipo %> <br />
+    <%= f.text_field :tipo %>
+  </p>
+
+  <%= link_to "Voltar", poderes_path, class: "btn btn-secondary" %>
+  <%= f.submit "Salvar", class:"btn btn-success" %>
+<% end %>

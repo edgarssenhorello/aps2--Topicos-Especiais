@@ -1,0 +1,40 @@
+<h1> Personagens</h1>
+<%= form_tag("/personagens", method: "get") do %>
+  Agilidade:
+  <%= number_field_tag(:agilidade, params[:agilidade]) %>
+  <%= submit_tag("Filtrar", class: "btn-primary")%>
+<% end %>
+<p>
+<table class="table" style="text-align: center">
+  <thead class="thead-light">
+
+<tr>
+    <th>ID</th>
+    <th>Nome</th>
+    <th>Força</th>
+    <th>Resistência</th>
+    <th>Agilidade</th>
+    <th>Destreza</th>
+    <th>Opções</th>
+
+    <%@personagens.each do |personagem| %>
+    <tr>
+      <td><%= personagem.id %></td>
+      <td><%= personagem.nome %></td>
+      <td><%= personagem.forca %></td>
+      <td><%= personagem.resistencia %></td>
+      <td><%= personagem.agilidade %></td>
+      <td><%= personagem.destreza %></td>
+      <td>
+        <%= link_to "Ver", personagem, class: "btn btn-primary" %>
+        <%= link_to "Editar", edit_personagem_path(personagem), class: "btn btn-warning" %>
+        <%= link_to 'Deletar', personagem_path(personagem), method: 'delete', data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger" %>
+    </tr>
+  <% end %>
+  </table>
+<p></p>
+<p>
+  <%= link_to "Home", root_path, class: "btn btn-secondary" %>
+  <%= link_to "Criar Personagem", new_personagem_path, class: "btn btn-primary" %>
+  <%= link_to "Ver poderes", poderes_path, class: "btn btn-primary" %>
+</p>

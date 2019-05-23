@@ -1,0 +1,27 @@
+<h1>Novo Personagem</h1>
+<%= form_with model: @personagem do |f| %>
+  <p>
+    <%= f.label :nome %> <br />
+    <%= f.text_field :nome %>
+  </p>
+  <p>
+    <%= f.label :forca %> <br />
+    <%= f.number_field :forca %>
+  </p>
+  <p>
+    <%= f.label :resistencia %> <br />
+    <%= f.number_field :resistencia %>
+  </p>
+  <p>
+    <%= f.label :agilidade %> <br />
+    <%= f.number_field :agilidade %>
+  </p>
+  <p>
+    <%= f.label :destreza %> <br />
+    <%= f.number_field :destreza %>
+  </p>
+
+    <%= link_to "Voltar", personagens_path, class:"btn btn-secondary" %>
+  <%= f.submit "Criar", class: "btn btn-success" %>
+
+<% end %>

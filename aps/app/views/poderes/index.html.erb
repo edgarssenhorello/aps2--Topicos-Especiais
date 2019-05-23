@@ -1,0 +1,37 @@
+<h1> Poderes</h1>
+<%= form_tag("/poderes", method: "get") do %>
+  Tipo:
+  <%= text_field_tag(:tipo, params[:tipo]) %>
+  <%= submit_tag("Filtrar", class: "btn-primary")%>
+<% end %>
+
+<p>
+
+<table class="table" style="text-align: center">
+  <thead class="thead-light">
+
+<tr>
+    <th>ID</th>
+    <th>Personagem</th>
+    <th>Nome do Poder</th>
+    <th>Tipo de Poder</th>
+    <th>Opções</th>
+
+    <%@poderes.each do |poder| %>
+    <tr>
+      <td><%=poder.personagem_id %></td>
+      <td><%=poder.personagem.nome %></td>
+      <td><%=poder.nome %></td>
+      <td><%=poder.tipo %></td>
+      <td>
+        <%= link_to "Ver", poder, class: "btn btn-primary" %>
+        <%= link_to "Editar", edit_poder_path(poder), class: "btn btn-warning" %>
+        <%= link_to 'Deletar', poder_path(poder), method: 'delete', data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger" %>
+    </tr>
+  <% end %>
+</table>
+<p></p>
+<%= link_to "Voltar", personagens_path, class: "btn btn-secondary" %>
+<!--
+<%= link_to 'Criar Poder', new_poder_path, class: "btn btn-info" %>
+-->
