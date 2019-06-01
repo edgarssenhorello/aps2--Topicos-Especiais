@@ -1,20 +1,41 @@
-<p id="notice"><%= notice %> </p>
+<h1>Personagem <%= @personagem.nome %></h1>
 
-<h1> Poderes de <%= @personagem.nome %> </h1>
+<ul style="list-style-type:none;">
+  <li>
+    <b>ID do Personagem:</b> <%= @personagem.id %>
+  </li>
+</ul>
+
+<ul style="list-style-type:none;">
+  <li>
+    <b>Força:</b> <%= @personagem.forca %>
+  </li>
+</ul>
+
+
+<ul style="list-style-type:none;">
+  <li><b>Resistencia:</b> <%= @personagem.resistencia %> </li>
+</ul>
+
+<ul style="list-style-type:none;">
+  <li><b>Agilidade:</b> <%= @personagem.agilidade %> </li>
+</ul>
+<ul style="list-style-type:none;">
+  <li><b>Destreza: </b><%= @personagem.destreza %> </li>
+</ul>
+
+
+<h1>Poderes de <%= @personagem.nome %></h1>
 
 <% @personagem.poderes.each do |poder| %>
+  <ul style="list-style-type:none;">
+    <li><b><%= poder.tipo %>:</b> <%= poder.nome %></li>
+  </ul>
 
-
-  <ul style="list-style-type:none;">
-    <li><b>ID do Poder:</b> <%= poder.id %></li>
-  </ul>
-  <ul style="list-style-type:none;">
-    <li><b>Nome do Poder:</b> <%= poder.nome %></li>
-  </ul>
-  <ul style="list-style-type:none;">
-    <li><b>Tipo de Poder:</b> <%= poder.tipo %></li>
-  </ul>
 <% end %>
+<p>
+  <%= link_to 'Voltar para Poderes', poderes_path, class: "btn btn-secondary" %>
+  <%= link_to 'Editar Personagem', edit_personagem_path(@personagem), class: "btn btn-warning" %>
+</p>
 
-<%= link_to 'Voltar', poderes_path, class: "btn btn-secondary" %>
-<%= link_to 'Editar Poder', poder_path(@personagem), class: "btn btn-warning" %>
+<p class="text-success"><p id="notice"><%= notice %> </p>

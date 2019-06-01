@@ -13,7 +13,7 @@ class PoderesController < ApplicationController
 
   def show
     @poder = Poder.find(params[:id])
-    @personagem = Personagem.find(params[:id])
+    @personagem = @poder.personagem
   end
 
 
@@ -29,7 +29,7 @@ class PoderesController < ApplicationController
   def poder_params
     params.
         require(:poder).
-        permit(:nome, :tipo)
+        permit(:nome, :tipo, :personagem_id)
   end
 
   def edit

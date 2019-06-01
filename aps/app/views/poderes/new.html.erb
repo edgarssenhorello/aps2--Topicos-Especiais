@@ -1,6 +1,9 @@
-<!--
 <h1>Novo Poder</h1>
 <%= form_with model: @poder do |p| %>
+  <p>
+    <%= p.label :personagem_id %> <br />
+    <%= p.collection_select(:personagem_id, Personagem.all, :id, :nome) %>
+  </p>
   <p>
     <%= p.label :nome %> <br />
     <%= p.text_field :nome  %>
@@ -12,4 +15,3 @@
     <%= link_to "Voltar", poderes_path, class: "btn btn-secondary" %>
     <%= p.submit "Criar", class: "btn btn-success" %>
 <% end %>
--->
